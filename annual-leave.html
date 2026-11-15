@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة بدل الإجازة السنوية — نظام العمل السعودي ٢٠٢٦</title>
+<meta name="description" content="احسب قيمة بدل أيام إجازتك السنوية غير المستخدمة وفق نظام العمل السعودي (المادة ١٠٩): أجر اليوم × عدد الأيام. حاسبة مجانية ودقيقة بتفصيل كامل.">
+<link rel="canonical" href="https://inspiring-halva-d196f9.netlify.app/annual-leave.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="mark">ح</span> حقّك</a>
+    <button class="nav-toggle" aria-label="القائمة" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="end-of-service.html">نهاية الخدمة</a>
+      <a href="annual-leave.html" aria-current="page">بدل الإجازات</a>
+      <a href="overtime.html">العمل الإضافي</a>
+      <a href="notice-period.html">مهلة الإشعار</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">حقّك</a> ← بدل الإجازة السنوية</div>
+    <span class="eyebrow">المادة ١٠٩ من نظام العمل</span>
+    <h1>حاسبة بدل الإجازة السنوية</h1>
+    <p class="lead">احسب قيمة أيام إجازتك غير المستخدمة التي تُصرف لك عند نهاية الخدمة أو عند طلب صرف الرصيد — بناءً على أجر يومك الفعلي.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="calc-grid">
+    <div class="card">
+      <div class="card-title"><span class="n">١</span> البيانات</div>
+
+      <label class="field">
+        <span class="lbl">الراتب الشهري <span class="hint">(الأساسي + البدلات الثابتة)</span></span>
+        <input type="number" id="salary" min="0" step="100" placeholder="مثال: ٨٠٠٠" inputmode="numeric">
+      </label>
+
+      <label class="field">
+        <span class="lbl">عدد أيام الإجازة غير المستخدمة</span>
+        <input type="number" id="days" min="0" step="1" placeholder="مثال: ١٥" inputmode="numeric">
+        <span class="hint" style="display:block;margin-top:7px">رصيد الأيام المتبقية التي لم تأخذها.</span>
+      </label>
+
+      <label class="field" style="margin-bottom:0">
+        <span class="lbl">مدة الخدمة <span class="hint">(لمعرفة استحقاقك السنوي)</span></span>
+        <select id="tenure">
+          <option value="21">أقل من ٥ سنوات — الاستحقاق ٢١ يومًا/سنة</option>
+          <option value="30">٥ سنوات فأكثر — الاستحقاق ٣٠ يومًا/سنة</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="card result">
+      <div class="card-title"><span class="n">﷼</span> المستحق</div>
+      <div class="total-label">إجمالي بدل الإجازة</div>
+      <div class="total" id="total"><span id="totalNum">٠</span><span class="cur">ريال</span></div>
+      <div class="brk">
+        <div class="brk-row"><span class="k">أجر اليوم الواحد</span><span class="v" id="daily">—</span></div>
+        <div class="brk-row"><span class="k">عدد الأيام</span><span class="v" id="dcount">—</span></div>
+        <div class="brk-row"><span class="k">استحقاقك السنوي</span><span class="pill" id="ent">٢١ يومًا</span></div>
+      </div>
+      <div class="note-line" id="note">أدخل الراتب وعدد الأيام لعرض الحساب.</div>
+    </div>
+  </div>
+
+  <section class="content">
+    <h2>كيف يُحسب بدل الإجازة السنوية؟</h2>
+    <p>عند نهاية الخدمة — أو عند اتفاقك مع صاحب العمل على صرف رصيد إجازاتك — يُصرف لك <strong>بدل نقدي</strong> عن كل يوم إجازة مستحق لم تستخدمه. القاعدة بسيطة:</p>
+    <div class="callout">بدل الإجازة = أجر اليوم الواحد × عدد أيام الإجازة غير المستخدمة، حيث أجر اليوم = الراتب الشهري ÷ ٣٠.</div>
+
+    <h3>كم يوم إجازة تستحق سنويًا؟</h3>
+    <p>حددت المادة ١٠٩ من نظام العمل استحقاق الإجازة السنوية على النحو التالي:</p>
+    <ul>
+      <li><strong>٢١ يومًا</strong> عن كل سنة إذا كانت خدمتك أقل من خمس سنوات.</li>
+      <li><strong>٣٠ يومًا</strong> عن كل سنة إذا بلغت خدمتك خمس سنوات فأكثر.</li>
+    </ul>
+    <p>وتُحسب الإجازة بالأجر كاملًا، ويشمل ذلك البدلات الثابتة التي تُصرف بشكل منتظم.</p>
+
+    <h2>أسئلة شائعة</h2>
+    <div class="faq">
+      <details>
+        <summary>هل يُصرف البدل عن كامل الرصيد المتراكم؟</summary>
+        <div class="a">نعم، يستحق العامل بدلًا نقديًا عن أيام إجازته المستحقة التي لم يحصل عليها، محسوبة على أساس آخر أجر تقاضاه.</div>
+      </details>
+      <details>
+        <summary>هل يدخل بدل السكن في حساب أجر اليوم؟</summary>
+        <div class="a">نعم، البدلات الثابتة والمنتظمة تدخل ضمن الأجر الذي يُحسب عليه اليوم الواحد.</div>
+      </details>
+      <details>
+        <summary>ما الفرق بين هذا وبين مكافأة نهاية الخدمة؟</summary>
+        <div class="a">مكافأة نهاية الخدمة تعويض عن مدة خدمتك، أما بدل الإجازة فهو قيمة أيام الإجازة التي لم تستفد منها. الاثنان يُصرفان معًا عند نهاية الخدمة. لحساب المكافأة استخدم <a href="end-of-service.html">حاسبة نهاية الخدمة</a>.</div>
+      </details>
+    </div>
+
+    <h2>حاسبات ذات صلة</h2>
+    <div class="tools" style="margin-top:16px">
+      <a class="tool" href="end-of-service.html"><div class="ico">﷼</div><h3>مكافأة نهاية الخدمة</h3><p>مستحقاتك عن مدة الخدمة.</p></a>
+      <a class="tool" href="overtime.html"><div class="ico">⏱️</div><h3>أجر العمل الإضافي</h3><p>احسب أوفر تايم بنسبة ١٥٠٪.</p></a>
+    </div>
+
+    <p class="disclaimer">هذه الحاسبة تعطي <strong>تقديرًا إرشاديًا</strong> وفق القواعد العامة لنظام العمل. المرجع النهائي هو منصة قوى ووزارة الموارد البشرية.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap fcols">
+    <div><div class="fbrand">حقّك</div><span>حاسبات نظام العمل السعودي</span></div>
+    <div>
+      <a href="end-of-service.html">مكافأة نهاية الخدمة</a>
+      <a href="annual-leave.html">بدل الإجازة السنوية</a>
+      <a href="overtime.html">أجر العمل الإضافي</a>
+      <a href="notice-period.html">بدل مهلة الإشعار</a>
+    </div>
+    <div><span>© <span id="year"></span> حقّك</span></div>
+  </div>
+</footer>
+
+<script src="calc.js"></script>
+<script src="script.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  ["salary","days","tenure"].forEach(id=>$(id).addEventListener("input",calc));
+  function calc(){
+    const salary=parseFloat($("salary").value);
+    const days=parseFloat($("days").value);
+    const ent=$("tenure").value;
+    $("ent").textContent=(ent==="30"?"٣٠":"٢١")+" يومًا";
+    if(!salary||salary<=0||isNaN(days)||days<0){
+      $("totalNum").textContent="٠";
+      $("daily").textContent="—";$("dcount").textContent="—";
+      $("note").textContent="أدخل الراتب وعدد الأيام لعرض الحساب.";
+      return;
+    }
+    const {daily,total}=Haqak.annualLeave(salary,days);
+    $("daily").textContent=fmt(daily)+" ريال";
+    $("dcount").textContent=ar(days)+" يوم";
+    $("totalNum").textContent=fmt(total);
+    $("note").textContent="أجر اليوم ("+fmt(daily)+" ريال) × "+ar(days)+" يوم = "+fmt(total)+" ريال.";
+  }
+  calc();
+})();
+</script>
+</body>
+</html>

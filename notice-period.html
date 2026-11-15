@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة بدل مهلة الإشعار — نظام العمل السعودي (المادة ٧٥) ٢٠٢٦</title>
+<meta name="description" content="احسب بدل مهلة الإشعار عند إنهاء عقد العمل غير محدد المدة وفق المادة ٧٥: ٦٠ يومًا على صاحب العمل و٣٠ يومًا على العامل للأجر الشهري. حاسبة مجانية ودقيقة.">
+<link rel="canonical" href="https://inspiring-halva-d196f9.netlify.app/notice-period.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="mark">ح</span> حقّك</a>
+    <button class="nav-toggle" aria-label="القائمة" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="end-of-service.html">نهاية الخدمة</a>
+      <a href="annual-leave.html">بدل الإجازات</a>
+      <a href="overtime.html">العمل الإضافي</a>
+      <a href="notice-period.html" aria-current="page">مهلة الإشعار</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">حقّك</a> ← بدل مهلة الإشعار</div>
+    <span class="eyebrow">المادة ٧٥ من نظام العمل</span>
+    <h1>حاسبة بدل مهلة الإشعار</h1>
+    <p class="lead">عند إنهاء عقد غير محدد المدة دون الالتزام بمهلة الإشعار النظامية، يدفع الطرف المُنهي تعويضًا عن مدة الإشعار. احسب قيمته هنا.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="calc-grid">
+    <div class="card">
+      <div class="card-title"><span class="n">١</span> البيانات</div>
+
+      <label class="field">
+        <span class="lbl">الراتب الشهري <span class="hint">(الأساسي + البدلات الثابتة)</span></span>
+        <input type="number" id="salary" min="0" step="100" placeholder="مثال: ٨٠٠٠" inputmode="numeric">
+      </label>
+
+      <div class="field">
+        <span class="lbl">من الذي أنهى العقد؟</span>
+        <div class="seg" id="partySeg">
+          <button type="button" data-p="worker" class="on"><span>العامل (استقالة)</span><span class="tick"></span></button>
+          <button type="button" data-p="employer"><span>صاحب العمل (فصل)</span><span class="tick"></span></button>
+        </div>
+      </div>
+
+      <label class="field" style="margin-bottom:0">
+        <span class="lbl">طريقة صرف الأجر</span>
+        <select id="wage">
+          <option value="monthly">شهري</option>
+          <option value="other">غير شهري (أسبوعي/يومي)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="card result">
+      <div class="card-title"><span class="n">﷼</span> المستحق</div>
+      <div class="total-label">بدل مهلة الإشعار</div>
+      <div class="total" id="total"><span id="totalNum">٠</span><span class="cur">ريال</span></div>
+      <div class="brk">
+        <div class="brk-row"><span class="k">مدة الإشعار النظامية</span><span class="pill" id="days">٣٠ يومًا</span></div>
+        <div class="brk-row"><span class="k">أجر اليوم الواحد</span><span class="v" id="daily">—</span></div>
+      </div>
+      <div class="note-line" id="note">أدخل الراتب لعرض الحساب.</div>
+    </div>
+  </div>
+
+  <section class="content">
+    <h2>ما هو بدل مهلة الإشعار؟</h2>
+    <p>في العقود غير محددة المدة، لا يجوز لأي طرف إنهاء العقد فجأة. المادة ٧٥ توجب على من يريد الإنهاء أن يُشعر الطرف الآخر <strong>كتابةً ومسبقًا</strong> بمدة محددة. فإذا أُنهي العقد دون التقيّد بهذه المهلة، التزم الطرف المُنهي بدفع <strong>تعويض يعادل أجر مدة الإشعار</strong> المتبقية.</p>
+
+    <div class="callout">بدل مهلة الإشعار = أجر اليوم الواحد × عدد أيام مهلة الإشعار، حيث أجر اليوم = الراتب الشهري ÷ ٣٠.</div>
+
+    <h3>كم مدة الإشعار النظامية؟</h3>
+    <p>بعد تعديلات نظام العمل، صارت المدة تختلف حسب الطرف المُنهي وطريقة صرف الأجر:</p>
+    <ul>
+      <li><strong>صاحب العمل</strong> عند الفصل (أجر شهري): إشعار قبل <strong>٦٠ يومًا</strong>.</li>
+      <li><strong>العامل</strong> عند الاستقالة (أجر شهري): إشعار قبل <strong>٣٠ يومًا</strong>.</li>
+      <li>إذا كان الأجر غير شهري: <strong>٣٠ يومًا</strong> على أي من الطرفين.</li>
+    </ul>
+    <p>وإذا نصّ العقد على مدة إشعار أطول من النظام، يُلتزم بما ورد في العقد.</p>
+
+    <h2>أسئلة شائعة</h2>
+    <div class="faq">
+      <details>
+        <summary>هل يُطبّق هذا على العقود محددة المدة؟</summary>
+        <div class="a">المادة ٧٥ تخص العقود غير محددة المدة. أما العقد محدد المدة فينتهي بانتهاء مدته، وإنهاؤه المبكر له أحكام تعويض أخرى (المادة ٧٧).</div>
+      </details>
+      <details>
+        <summary>هل يمكن الاتفاق على إعفاء أحد الطرفين من المهلة؟</summary>
+        <div class="a">يجوز للطرفين الاتفاق على تعجيل الإنهاء مقابل بدل المهلة، أو أن يعفي أحدهما الآخر. المرجع هو اتفاق الطرفين ونص العقد ضمن حدود النظام.</div>
+      </details>
+      <details>
+        <summary>ما علاقته بمكافأة نهاية الخدمة؟</summary>
+        <div class="a">بدل الإشعار مستقل عن المكافأة، ويُصرف إضافةً إليها عند وجود مخالفة للمهلة. لحساب المكافأة استخدم <a href="end-of-service.html">حاسبة نهاية الخدمة</a>.</div>
+      </details>
+    </div>
+
+    <h2>حاسبات ذات صلة</h2>
+    <div class="tools" style="margin-top:16px">
+      <a class="tool" href="end-of-service.html"><div class="ico">﷼</div><h3>مكافأة نهاية الخدمة</h3><p>مستحقاتك عن مدة الخدمة.</p></a>
+      <a class="tool" href="annual-leave.html"><div class="ico">🏖️</div><h3>بدل الإجازة السنوية</h3><p>قيمة أيام إجازتك غير المستخدمة.</p></a>
+    </div>
+
+    <p class="disclaimer">هذه الحاسبة تعطي <strong>تقديرًا إرشاديًا</strong> وفق القواعد العامة لنظام العمل، وقد تختلف حسب بنود العقد. المرجع النهائي هو منصة قوى ووزارة الموارد البشرية.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap fcols">
+    <div><div class="fbrand">حقّك</div><span>حاسبات نظام العمل السعودي</span></div>
+    <div>
+      <a href="end-of-service.html">مكافأة نهاية الخدمة</a>
+      <a href="annual-leave.html">بدل الإجازة السنوية</a>
+      <a href="overtime.html">أجر العمل الإضافي</a>
+      <a href="notice-period.html">بدل مهلة الإشعار</a>
+    </div>
+    <div><span>© <span id="year"></span> حقّك</span></div>
+  </div>
+</footer>
+
+<script src="calc.js"></script>
+<script src="script.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  let party="worker";
+  $("partySeg").addEventListener("click",e=>{
+    const b=e.target.closest("button");if(!b)return;
+    party=b.dataset.p;
+    [...$("partySeg").children].forEach(x=>x.classList.toggle("on",x===b));
+    calc();
+  });
+  ["salary","wage"].forEach(id=>$(id).addEventListener("input",calc));
+  const noticeDays=()=>Haqak.noticeDays(party,$("wage").value);
+  function calc(){
+    const salary=parseFloat($("salary").value);
+    const nd=noticeDays();
+    $("days").textContent=ar(nd)+" يومًا";
+    if(!salary||salary<=0){
+      $("totalNum").textContent="٠";$("daily").textContent="—";
+      $("note").textContent="أدخل الراتب لعرض الحساب.";
+      return;
+    }
+    const {daily,total}=Haqak.noticePay(salary,party,$("wage").value);
+    $("daily").textContent=fmt(daily)+" ريال";
+    $("totalNum").textContent=fmt(total);
+    const who=party==="employer"?"صاحب العمل":"العامل";
+    $("note").textContent=who+" ملزم بإشعار "+ar(nd)+" يومًا: "+fmt(daily)+" × "+ar(nd)+" = "+fmt(total)+" ريال.";
+  }
+  calc();
+})();
+</script>
+</body>
+</html>

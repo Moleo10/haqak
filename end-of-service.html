@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة مكافأة نهاية الخدمة — نظام العمل السعودي (استقالة وفصل) ٢٠٢٦</title>
+<meta name="description" content="احسب مكافأة نهاية الخدمة وفق نظام العمل السعودي: نصف شهر عن كل سنة من أول خمس سنوات وشهر كامل عمّا بعدها، مع نسب الاستحقاق عند الاستقالة (المادتان ٨٤ و٨٥). حاسبة مجانية بتفصيل كامل.">
+<link rel="canonical" href="https://inspiring-halva-d196f9.netlify.app/end-of-service.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="mark">ح</span> حقّك</a>
+    <button class="nav-toggle" aria-label="القائمة" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="end-of-service.html" aria-current="page">نهاية الخدمة</a>
+      <a href="annual-leave.html">بدل الإجازات</a>
+      <a href="overtime.html">العمل الإضافي</a>
+      <a href="notice-period.html">مهلة الإشعار</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">حقّك</a> ← مكافأة نهاية الخدمة</div>
+    <span class="eyebrow">المادتان ٨٤ و٨٥ من نظام العمل</span>
+    <h1>حاسبة مكافأة نهاية الخدمة</h1>
+    <p class="lead">أدخل راتبك ومدة خدمتك وسبب انتهاء العلاقة، وتظهر لك المكافأة مفصّلة خطوة بخطوة — سواء كنت مستقيلاً أو مفصولاً أو انتهى عقدك.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="calc-grid">
+    <!-- INPUTS -->
+    <div class="card">
+      <div class="card-title"><span class="n">١</span> بيانات الخدمة</div>
+
+      <label class="field">
+        <span class="lbl">الراتب الشهري الأخير <span class="hint">(الأساسي + البدلات الثابتة)</span></span>
+        <input type="number" id="salary" min="0" step="100" placeholder="مثال: ٨٠٠٠" inputmode="numeric">
+      </label>
+
+      <div class="field">
+        <span class="lbl">مدة الخدمة</span>
+        <div class="row2">
+          <label style="font-size:.78rem;color:var(--muted)">من تاريخ التعيين
+            <input type="date" id="start" style="margin-top:6px">
+          </label>
+          <label style="font-size:.78rem;color:var(--muted)">إلى تاريخ الانتهاء
+            <input type="date" id="end" style="margin-top:6px">
+          </label>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:0">
+        <span class="lbl">سبب انتهاء العلاقة</span>
+        <div class="seg" id="reasonSeg">
+          <button type="button" data-r="term" class="on"><span>فصل / إنهاء من صاحب العمل</span><span class="tick"></span></button>
+          <button type="button" data-r="expire"><span>انتهاء مدة العقد</span><span class="tick"></span></button>
+          <button type="button" data-r="resign"><span>استقالة</span><span class="tick"></span></button>
+        </div>
+        <div class="conditional" id="resignBox">
+          <label class="field" style="margin-bottom:14px">
+            <span class="lbl">نوع العقد</span>
+            <select id="contract">
+              <option value="indef">غير محدد المدة</option>
+              <option value="fixed">محدد المدة</option>
+            </select>
+          </label>
+          <label class="check">
+            <input type="checkbox" id="femaleCase">
+            <span>استقالة موظفة خلال ٦ أشهر من عقد الزواج أو ٣ أشهر من الولادة <span class="hint">(تستحق المكافأة كاملة)</span></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="card result">
+      <div class="card-title"><span class="n">﷼</span> المستحق</div>
+      <div class="total-label">إجمالي مكافأة نهاية الخدمة</div>
+      <div class="total" id="total"><span id="totalNum">٠</span><span class="cur">ريال</span></div>
+      <div class="brk">
+        <div class="brk-row"><span class="k">المدة المحتسبة</span><span class="v" id="dur">—</span></div>
+        <div class="brk-row"><span class="k">مكافأة أول ٥ سنوات</span><span class="v" id="first5">—</span></div>
+        <div class="brk-row"><span class="k">مكافأة ما بعد ٥ سنوات</span><span class="v" id="after5">—</span></div>
+        <div class="brk-row"><span class="k">المكافأة الكاملة</span><span class="v" id="full">—</span></div>
+        <div class="brk-row"><span class="k">نسبة الاستحقاق</span><span class="pill" id="ratio">١٠٠٪</span></div>
+      </div>
+      <div class="note-line" id="note">أدخل الراتب وتاريخَي التعيين والانتهاء لعرض الحساب.</div>
+    </div>
+  </div>
+
+  <!-- SEO CONTENT -->
+  <section class="content">
+    <h2>كيف تُحسب مكافأة نهاية الخدمة؟</h2>
+    <p>القاعدة الأساسية في نظام العمل السعودي (المادة ٨٤) بسيطة: يستحق العامل <strong>نصف شهر</strong> عن كل سنة من السنوات الخمس الأولى من خدمته، ثم <strong>شهرًا كاملًا</strong> عن كل سنة من السنوات التالية. ويُحسب الأجر على أساس الراتب الأخير شاملًا البدلات الثابتة. أما أجزاء السنة فتُحسب بالتناسب.</p>
+
+    <h3>الاستحقاق عند الاستقالة (المادة ٨٥)</h3>
+    <p>عند الاستقالة من عقد غير محدد المدة، لا تُصرف المكافأة كاملة دائمًا، بل تتدرّج حسب مدة الخدمة:</p>
+    <ul>
+      <li>خدمة أقل من سنتين: <strong>لا يستحق العامل شيئًا</strong>.</li>
+      <li>من سنتين إلى خمس سنوات: يستحق <strong>ثلث</strong> المكافأة.</li>
+      <li>من خمس إلى عشر سنوات: يستحق <strong>ثلثي</strong> المكافأة.</li>
+      <li>عشر سنوات فأكثر: يستحق <strong>المكافأة كاملة</strong>.</li>
+    </ul>
+
+    <h3>الاستحقاق عند الفصل أو انتهاء العقد</h3>
+    <p>إذا أنهى صاحب العمل العلاقة لسبب غير تأديبي، أو انتهى العقد محدد المدة بانتهاء مدته، تُستحق المكافأة كاملة دون تطبيق نسب المادة ٨٥.</p>
+
+    <div class="callout">حالة خاصة: تستحق العاملة مكافأة نهاية الخدمة كاملة إذا استقالت خلال ستة أشهر من تاريخ عقد زواجها، أو خلال ثلاثة أشهر من تاريخ وضعها.</div>
+
+    <h2>أسئلة شائعة</h2>
+    <div class="faq">
+      <details>
+        <summary>هل يدخل بدل السكن في حساب المكافأة؟</summary>
+        <div class="a">نعم. البدلات الثابتة كبدل السكن والنقل تدخل ضمن الأجر المحتسب. أما العمولات والمكافآت المتغيّرة غير الثابتة فلا تُحتسب.</div>
+      </details>
+      <details>
+        <summary>متى لا يستحق العامل المكافأة نهائيًا؟</summary>
+        <div class="a">إذا فُصل لأحد الأسباب التأديبية الواردة في المادة ٨٠، أو ترك العمل دون استقالة نظامية قبل إكمال سنتين. هذه الحاسبة لا تغطي حالات المادة ٨٠.</div>
+      </details>
+      <details>
+        <summary>كيف تُحسب أجزاء السنة؟</summary>
+        <div class="a">تُحسب بالتناسب. مثلاً من أكمل ٦ أشهر يستحق نصف مكافأة السنة الكاملة عن تلك الفترة. الحاسبة أعلاه تحسب المدة بالسنة والشهر واليوم تلقائيًا من التواريخ.</div>
+      </details>
+    </div>
+
+    <h2>حاسبات ذات صلة</h2>
+    <div class="tools" style="margin-top:16px">
+      <a class="tool" href="notice-period.html"><div class="ico">📄</div><h3>بدل مهلة الإشعار</h3><p>تعويض الإنهاء دون مهلة إشعار.</p></a>
+      <a class="tool" href="annual-leave.html"><div class="ico">🏖️</div><h3>بدل الإجازة السنوية</h3><p>قيمة أيام إجازتك غير المستخدمة.</p></a>
+    </div>
+
+    <p class="disclaimer">هذه الحاسبة تعطي <strong>تقديرًا إرشاديًا</strong> وفق القواعد العامة لنظام العمل، وقد تختلف النتيجة حسب بنود العقد وظروف الإنهاء. المرجع النهائي هو منصة قوى ووزارة الموارد البشرية.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap fcols">
+    <div><div class="fbrand">حقّك</div><span>حاسبات نظام العمل السعودي</span></div>
+    <div>
+      <a href="end-of-service.html">مكافأة نهاية الخدمة</a>
+      <a href="annual-leave.html">بدل الإجازة السنوية</a>
+      <a href="overtime.html">أجر العمل الإضافي</a>
+      <a href="notice-period.html">بدل مهلة الإشعار</a>
+    </div>
+    <div><span>© <span id="year"></span> حقّك</span></div>
+  </div>
+</footer>
+
+<script src="calc.js"></script>
+<script src="script.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  let reason="term";
+  $("reasonSeg").addEventListener("click",e=>{
+    const b=e.target.closest("button");if(!b)return;
+    reason=b.dataset.r;
+    [...$("reasonSeg").children].forEach(x=>x.classList.toggle("on",x===b));
+    $("resignBox").classList.toggle("show",reason==="resign");
+    calc();
+  });
+  ["salary","start","end","contract","femaleCase"].forEach(id=>$(id).addEventListener("input",calc));
+
+  const NOTES={
+    termination:"إنهاء من صاحب العمل (غير تأديبي): تُستحق المكافأة كاملة.",
+    expiry:"انتهاء مدة العقد: تُستحق المكافأة كاملة.",
+    female:"استحقاق كامل — استقالة الموظفة ضمن المهلة النظامية بعد الزواج أو الولادة.",
+    fixed:"عقد محدد المدة: تُحتسب المكافأة كاملة عند انتهاء مدته."
+  };
+  function resignNote(Y){
+    if(Y<2)return "الخدمة أقل من سنتين — لا تُستحق مكافأة عند الاستقالة (م ٨٥).";
+    if(Y<5)return "استقالة بعد ٢–٥ سنوات: يُستحق ثلث المكافأة (م ٨٥).";
+    if(Y<10)return "استقالة بعد ٥–١٠ سنوات: يُستحق ثلثا المكافأة (م ٨٥).";
+    return "استقالة بعد ١٠ سنوات فأكثر: تُستحق المكافأة كاملة (م ٨٥).";
+  }
+  function calc(){
+    const salary=parseFloat($("salary").value);
+    const s=$("start").value?new Date($("start").value):null;
+    const e=$("end").value?new Date($("end").value):null;
+    const empty=msg=>{$("totalNum").textContent="٠";$("total").classList.remove("zero");
+      ["dur","first5","after5","full"].forEach(k=>$(k).textContent="—");
+      $("ratio").textContent="١٠٠٪";$("note").textContent=msg;};
+    if(!salary||salary<=0||!s||!e)return empty("أدخل الراتب وتاريخَي التعيين والانتهاء لعرض الحساب.");
+    if(e<=s)return empty("تاريخ الانتهاء يجب أن يكون بعد تاريخ التعيين.");
+
+    const {y,m,d}=Haqak.durationYMD(s,e);
+    const Y=Haqak.serviceYears(s,e);
+    const r=Haqak.endOfService(salary,Y,reason,{fixedContract:$("contract").value==="fixed",femaleCase:$("femaleCase").checked});
+    const first5=r.first5, after5=r.after5, fullG=r.full, ratio=r.ratio;
+    const note=NOTES[r.rule]||resignNote(Y);
+
+    const payout=fullG*ratio;
+    $("dur").textContent=`${ar(y)} سنة، ${ar(m)} شهر، ${ar(d)} يوم`;
+    $("first5").textContent=fmt(first5)+" ريال";
+    $("after5").textContent=fmt(after5)+" ريال";
+    $("full").textContent=fmt(fullG)+" ريال";
+    const rp={1:"١٠٠٪",[2/3]:"٦٦٫٧٪",[1/3]:"٣٣٫٣٪",0:"٠٪"};
+    $("ratio").textContent=rp[ratio]||Math.round(ratio*100)+"٪";
+    $("totalNum").textContent=fmt(payout);
+    $("total").classList.toggle("zero",payout===0);
+    $("note").textContent=note;
+  }
+  calc();
+})();
+</script>
+</body>
+</html>

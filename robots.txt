@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inspiring-halva-d196f9.netlify.app/sitemap.xml

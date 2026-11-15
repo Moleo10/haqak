@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة أجر العمل الإضافي (أوفر تايم) — نظام العمل السعودي ٢٠٢٦</title>
+<meta name="description" content="احسب أجر ساعات العمل الإضافي وفق نظام العمل السعودي (المادة ١٠٧): أجر الساعة + ٥٠٪ إضافية، أي ١٥٠٪ عن كل ساعة إضافية. حاسبة مجانية ودقيقة.">
+<link rel="canonical" href="https://inspiring-halva-d196f9.netlify.app/overtime.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="mark">ح</span> حقّك</a>
+    <button class="nav-toggle" aria-label="القائمة" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="end-of-service.html">نهاية الخدمة</a>
+      <a href="annual-leave.html">بدل الإجازات</a>
+      <a href="overtime.html" aria-current="page">العمل الإضافي</a>
+      <a href="notice-period.html">مهلة الإشعار</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">حقّك</a> ← أجر العمل الإضافي</div>
+    <span class="eyebrow">المادة ١٠٧ من نظام العمل</span>
+    <h1>حاسبة أجر العمل الإضافي</h1>
+    <p class="lead">احسب مستحقك عن ساعات العمل الإضافية (الأوفر تايم): أجر الساعة العادية مضافًا إليه ٥٠٪، أي ١٥٠٪ عن كل ساعة إضافية.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="calc-grid">
+    <div class="card">
+      <div class="card-title"><span class="n">١</span> البيانات</div>
+
+      <label class="field">
+        <span class="lbl">الراتب الشهري <span class="hint">(الأساسي + البدلات الثابتة)</span></span>
+        <input type="number" id="salary" min="0" step="100" placeholder="مثال: ٨٠٠٠" inputmode="numeric">
+      </label>
+
+      <label class="field">
+        <span class="lbl">عدد ساعات العمل الإضافية</span>
+        <input type="number" id="hours" min="0" step="0.5" placeholder="مثال: ١٠" inputmode="decimal">
+      </label>
+
+      <label class="field" style="margin-bottom:0">
+        <span class="lbl">ساعات العمل اليومية <span class="hint">(لحساب أجر الساعة)</span></span>
+        <select id="daily">
+          <option value="8">٨ ساعات يوميًا (الأكثر شيوعًا)</option>
+          <option value="7.33">٧٫٣٣ ساعة (٤٤ ساعة أسبوعيًا / ٦ أيام)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="card result">
+      <div class="card-title"><span class="n">﷼</span> المستحق</div>
+      <div class="total-label">إجمالي أجر العمل الإضافي</div>
+      <div class="total" id="total"><span id="totalNum">٠</span><span class="cur">ريال</span></div>
+      <div class="brk">
+        <div class="brk-row"><span class="k">أجر الساعة العادية</span><span class="v" id="hr">—</span></div>
+        <div class="brk-row"><span class="k">أجر الساعة الإضافية (١٥٠٪)</span><span class="v" id="ot">—</span></div>
+        <div class="brk-row"><span class="k">عدد الساعات</span><span class="v" id="hcount">—</span></div>
+      </div>
+      <div class="note-line" id="note">أدخل الراتب وعدد الساعات لعرض الحساب.</div>
+    </div>
+  </div>
+
+  <section class="content">
+    <h2>كيف يُحسب أجر العمل الإضافي؟</h2>
+    <p>ألزمت المادة ١٠٧ من نظام العمل صاحب العمل بأن يدفع عن كل ساعة عمل إضافية <strong>أجر الساعة مضافًا إليه ٥٠٪</strong> من أجرها الأساسي. أي أن الساعة الإضافية تُحتسب بمعدل <strong>١٥٠٪</strong> من أجر الساعة العادية.</p>
+    <div class="callout">أجر الساعة الإضافية = أجر الساعة العادية × ١٫٥، حيث أجر الساعة = الراتب الشهري ÷ (٣٠ يومًا × ساعات العمل اليومية).</div>
+
+    <h3>مثال عملي</h3>
+    <p>موظف راتبه ٨٬٠٠٠ ريال ويعمل ٨ ساعات يوميًا: أجر ساعته العادية = ٨٠٠٠ ÷ (٣٠ × ٨) ≈ ٣٣٫٣ ريال. أجر الساعة الإضافية = ٣٣٫٣ × ١٫٥ ≈ ٥٠ ريال. فلو عمل ١٠ ساعات إضافية استحق ≈ ٥٠٠ ريال.</p>
+
+    <h2>أسئلة شائعة</h2>
+    <div class="faq">
+      <details>
+        <summary>هل يُحسب العمل في يوم الراحة أو العيد كعمل إضافي؟</summary>
+        <div class="a">العمل في أيام الراحة والأعياد يُعامل بوصفه ساعات عمل إضافية وتُطبق عليه زيادة الـ٥٠٪ ذاتها وفق النظام.</div>
+      </details>
+      <details>
+        <summary>على أي أجر تُحسب الزيادة؟</summary>
+        <div class="a">تُحسب على الأجر الأساسي مضافًا إليه البدلات الثابتة، بحسب ما استقر عليه أجر العامل.</div>
+      </details>
+      <details>
+        <summary>ما الحد الأقصى لساعات العمل الإضافية؟</summary>
+        <div class="a">ينظّم النظام ساعات العمل الفعلية وحدودها، والأصل أن العمل الإضافي يكون باتفاق ومقابل الأجر المذكور. راجع عقدك ولائحة المنشأة للتفاصيل.</div>
+      </details>
+    </div>
+
+    <h2>حاسبات ذات صلة</h2>
+    <div class="tools" style="margin-top:16px">
+      <a class="tool" href="end-of-service.html"><div class="ico">﷼</div><h3>مكافأة نهاية الخدمة</h3><p>مستحقاتك عن مدة الخدمة.</p></a>
+      <a class="tool" href="annual-leave.html"><div class="ico">🏖️</div><h3>بدل الإجازة السنوية</h3><p>قيمة أيام إجازتك غير المستخدمة.</p></a>
+    </div>
+
+    <p class="disclaimer">هذه الحاسبة تعطي <strong>تقديرًا إرشاديًا</strong> وفق القواعد العامة لنظام العمل. المرجع النهائي هو منصة قوى ووزارة الموارد البشرية.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap fcols">
+    <div><div class="fbrand">حقّك</div><span>حاسبات نظام العمل السعودي</span></div>
+    <div>
+      <a href="end-of-service.html">مكافأة نهاية الخدمة</a>
+      <a href="annual-leave.html">بدل الإجازة السنوية</a>
+      <a href="overtime.html">أجر العمل الإضافي</a>
+      <a href="notice-period.html">بدل مهلة الإشعار</a>
+    </div>
+    <div><span>© <span id="year"></span> حقّك</span></div>
+  </div>
+</footer>
+
+<script src="calc.js"></script>
+<script src="script.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  ["salary","hours","daily"].forEach(id=>$(id).addEventListener("input",calc));
+  function calc(){
+    const salary=parseFloat($("salary").value);
+    const hours=parseFloat($("hours").value);
+    const dh=parseFloat($("daily").value);
+    if(!salary||salary<=0||isNaN(hours)||hours<0){
+      $("totalNum").textContent="٠";
+      ["hr","ot","hcount"].forEach(k=>$(k).textContent="—");
+      $("note").textContent="أدخل الراتب وعدد الساعات لعرض الحساب.";
+      return;
+    }
+    const {hourly:hr,otRate:ot,total}=Haqak.overtime(salary,hours,dh);
+    $("hr").textContent=fmt(hr)+" ريال";
+    $("ot").textContent=fmt(ot)+" ريال";
+    $("hcount").textContent=ar(hours)+" ساعة";
+    $("totalNum").textContent=fmt(total);
+    $("note").textContent="أجر الساعة الإضافية ("+fmt(ot)+" ريال) × "+ar(hours)+" ساعة = "+fmt(total)+" ريال.";
+  }
+  calc();
+})();
+</script>
+</body>
+</html>
